@@ -66,6 +66,8 @@ function Quiz() {
 
   const [errors, setErrors] = useState({})
   const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitError, setSubmitError] = useState('')
   const [showManualAddress, setShowManualAddress] = useState(false)
   const [addressSelected, setAddressSelected] = useState(false)
 
@@ -390,15 +392,64 @@ function Quiz() {
     setErrors({})
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
+    setSubmitError('')
 
     if (validateStep()) {
-      console.log('Form submitted:', {
-        ...formData,
-        submittedAt: new Date().toISOString(),
-      })
-      setIsSubmitted(true)
+      setIsSubmitting(true)
+
+      // Build the address string
+      let fullPropertyAddress = formData.fullAddress
+      if (showManualAddress || (isLandProperty && formData.landInputType === 'parcel')) {
+        if (isLandProperty && formData.landInputType === 'parcel') {
+          fullPropertyAddress = `Parcel: ${formData.parcelNumber}, ${formData.parcelCounty} County, ${formData.state}, ${formData.country}`
+        } else {
+          fullPropertyAddress = `${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}, ${formData.country}`
+        }
+      }
+
+      // Prepare payload for GoHighLevel
+      const payload = {
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        name: `${formData.firstName} ${formData.lastName}`,
+        email: formData.email,
+        phone: formData.phone.replace(/\D/g, ''), // Send digits only
+        // Custom fields - adjust field names to match your GHL setup
+        propertyType: formData.propertyType,
+        propertyAddress: fullPropertyAddress,
+        street: formData.street,
+        city: formData.city,
+        state: formData.state,
+        postalCode: formData.zip,
+        country: formData.country,
+        parcelNumber: formData.parcelNumber || '',
+        parcelCounty: formData.parcelCounty || '',
+        source: 'Release Properties Website',
+        tags: ['website-lead', formData.propertyType],
+      }
+
+      try {
+        const response = await fetch('https://services.leadconnectorhq.com/hooks/32BVxewQUNt09ieqvjRt/webhook-trigger/f7c06753-90a8-4e61-aa5c-3a77de828432', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        })
+
+        if (!response.ok) {
+          throw new Error('Failed to submit form')
+        }
+
+        setIsSubmitted(true)
+      } catch (error) {
+        console.error('Form submission error:', error)
+        setSubmitError('Something went wrong. Please try again or call us directly.')
+      } finally {
+        setIsSubmitting(false)
+      }
     }
   }
 
@@ -960,18 +1011,37 @@ function Quiz() {
                 </div>
               </div>
 
+              {/* Error message */}
+              {submitError && (
+                <div className="mt-4 p-4 bg-red-50 border border-red-200 rounded-xl text-red-700 text-sm">
+                  {submitError}
+                </div>
+              )}
+
               {/* Navigation */}
               <div className="mt-8 flex flex-col gap-3">
                 <button
                   type="submit"
-                  className="w-full py-4 bg-amber-500 text-navy-900 font-semibold rounded-full hover:bg-amber-400 transition-all duration-200 hover:shadow-lg hover:shadow-amber-500/25 text-lg"
+                  disabled={isSubmitting}
+                  className="w-full py-4 bg-amber-500 text-navy-900 font-semibold rounded-full hover:bg-amber-400 transition-all duration-200 hover:shadow-lg hover:shadow-amber-500/25 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Get My Cash Offer →
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center gap-2">
+                      <svg className="animate-spin h-5 w-5" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                      </svg>
+                      Submitting...
+                    </span>
+                  ) : (
+                    'Get My Cash Offer →'
+                  )}
                 </button>
                 <button
                   type="button"
                   onClick={prevStep}
-                  className="w-full py-3 text-navy-500 font-medium hover:text-navy-700 transition-colors"
+                  disabled={isSubmitting}
+                  className="w-full py-3 text-navy-500 font-medium hover:text-navy-700 transition-colors disabled:opacity-50"
                 >
                   ← Go Back
                 </button>
