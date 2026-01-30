@@ -405,15 +405,15 @@ function Quiz() {
 
       // Prepare payload for GoHighLevel (field names match GHL's expected format)
       const payload = {
-        first_name: formData.firstName,
-        last_name: formData.lastName,
-        name: `${formData.firstName} ${formData.lastName}`,
-        email: formData.email,
-        phone: formData.phone.replace(/\D/g, ''), // Send digits only
-        address1: fullPropertyAddress,
-        city: formData.city,
-        state: formData.state,
-        country: formData.country,
+        'contact.first_name': formData.firstName,
+        'contact.last_name': formData.lastName,
+        'contact.name': `${formData.firstName} ${formData.lastName}`,
+        'contact.email': formData.email,
+        'contact.phone': formData.phone.replace(/\D/g, ''), // Send digits only
+        'contact.address1': fullPropertyAddress,
+        'contact.city': formData.city,
+        'contact.state': formData.state,
+        'contact.country': formData.country,
         // Custom fields
         propertyType: formData.propertyType,
         street: formData.street,
