@@ -405,17 +405,17 @@ function Quiz() {
 
       // Prepare payload for GoHighLevel
       const payload = {
-        email: formData.email,
-        phone: formData.phone.replace(/\D/g, ''),
         firstName: formData.firstName,
         lastName: formData.lastName,
         name: `${formData.firstName} ${formData.lastName}`,
-        address1: fullPropertyAddress,
+        email: formData.email,
+        phone: formData.phone.replace(/\D/g, ''),
+        propertyType: formData.propertyType,
+        propertyAddress: fullPropertyAddress,
+        street: formData.street,
         city: formData.city,
         state: formData.state,
         country: formData.country,
-        propertyType: formData.propertyType,
-        street: formData.street,
         parcelNumber: formData.parcelNumber || '',
         parcelCounty: formData.parcelCounty || '',
         source: 'Release Properties Website',
