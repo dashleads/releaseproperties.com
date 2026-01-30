@@ -330,12 +330,6 @@ function Quiz() {
           newErrors.state = 'Enter a valid state/province'
         }
 
-        if (!formData.zip.trim()) {
-          newErrors.zip = 'Required'
-        } else if (!isValidZip(formData.zip, formData.country || 'USA')) {
-          newErrors.zip = formData.country === 'Canada' ? 'Format: A1A 1A1' : 'Format: 12345 or 12345-6789'
-        }
-
         if (!formData.country) newErrors.country = 'Required'
       } else {
         // Google autocomplete validation
@@ -405,7 +399,7 @@ function Quiz() {
         if (isLandProperty && formData.landInputType === 'parcel') {
           fullPropertyAddress = `Parcel: ${formData.parcelNumber}, ${formData.parcelCounty} County, ${formData.state}, ${formData.country}`
         } else {
-          fullPropertyAddress = `${formData.street}, ${formData.city}, ${formData.state} ${formData.zip}, ${formData.country}`
+          fullPropertyAddress = `${formData.street}, ${formData.city}, ${formData.state}, ${formData.country}`
         }
       }
 
@@ -723,48 +717,26 @@ function Quiz() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="zip" className="block text-sm font-medium text-navy-700 mb-1.5">
-                        ZIP / Postal Code
-                      </label>
-                      <input
-                        type="text"
-                        id="zip"
-                        name="zip"
-                        value={formData.zip}
-                        onChange={handleChange}
-                        maxLength={10}
-                        className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
-                          errors.zip
-                            ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
-                        }`}
-                        placeholder={formData.country === 'Canada' ? 'A1A 1A1' : '12345'}
-                      />
-                      {errors.zip && <p className="text-red-500 text-xs mt-1">{errors.zip}</p>}
-                    </div>
-                    <div>
-                      <label htmlFor="country" className="block text-sm font-medium text-navy-700 mb-1.5">
-                        Country
-                      </label>
-                      <select
-                        id="country"
-                        name="country"
-                        value={formData.country}
-                        onChange={handleChange}
-                        className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 transition-all duration-200 focus:outline-none focus:ring-2 ${
-                          errors.country
-                            ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
-                        }`}
-                      >
-                        <option value="">Select</option>
-                        <option value="USA">United States</option>
-                        <option value="Canada">Canada</option>
-                      </select>
-                      {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
-                    </div>
+                  <div>
+                    <label htmlFor="country" className="block text-sm font-medium text-navy-700 mb-1.5">
+                      Country
+                    </label>
+                    <select
+                      id="country"
+                      name="country"
+                      value={formData.country}
+                      onChange={handleChange}
+                      className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 transition-all duration-200 focus:outline-none focus:ring-2 ${
+                        errors.country
+                          ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
+                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                      }`}
+                    >
+                      <option value="">Select</option>
+                      <option value="USA">United States</option>
+                      <option value="Canada">Canada</option>
+                    </select>
+                    {errors.country && <p className="text-red-500 text-xs mt-1">{errors.country}</p>}
                   </div>
                 </div>
               )}
