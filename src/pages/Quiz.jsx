@@ -403,21 +403,20 @@ function Quiz() {
         }
       }
 
-      // Prepare payload for GoHighLevel
+      // Prepare payload for GoHighLevel (field names match GHL's expected format)
       const payload = {
-        firstName: formData.firstName,
-        lastName: formData.lastName,
+        first_name: formData.firstName,
+        last_name: formData.lastName,
         name: `${formData.firstName} ${formData.lastName}`,
         email: formData.email,
         phone: formData.phone.replace(/\D/g, ''), // Send digits only
-        // Custom fields - adjust field names to match your GHL setup
-        propertyType: formData.propertyType,
-        propertyAddress: fullPropertyAddress,
-        street: formData.street,
+        address1: fullPropertyAddress,
         city: formData.city,
         state: formData.state,
-        postalCode: formData.zip,
         country: formData.country,
+        // Custom fields
+        propertyType: formData.propertyType,
+        street: formData.street,
         parcelNumber: formData.parcelNumber || '',
         parcelCounty: formData.parcelCounty || '',
         source: 'Release Properties Website',
