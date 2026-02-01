@@ -74,43 +74,16 @@ function Quiz() {
   const addressInputRef = useRef(null)
   const autocompleteRef = useRef(null)
   const containerRef = useRef(null)
-  const [googleMapsLoaded, setGoogleMapsLoaded] = useState(false)
 
   const isLandProperty = formData.propertyType === 'land'
   const totalSteps = 3
-
-  // Load Google Maps API script dynamically
-  useEffect(() => {
-    if (window.google?.maps?.places) {
-      setGoogleMapsLoaded(true)
-      return
-    }
-
-    const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
-    if (!apiKey) {
-      console.error('Google Maps API key is not configured')
-      return
-    }
-
-    const script = document.createElement('script')
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${apiKey}&libraries=places`
-    script.async = true
-    script.defer = true
-    script.onload = () => setGoogleMapsLoaded(true)
-    script.onerror = () => console.error('Failed to load Google Maps API')
-    document.head.appendChild(script)
-
-    return () => {
-      // Cleanup if needed
-    }
-  }, [])
 
   // Initialize Google Places Autocomplete
   useEffect(() => {
     const shouldShowAutocomplete = step === 2 && !showManualAddress &&
       (!isLandProperty || (isLandProperty && formData.landInputType === 'address'))
 
-    if (shouldShowAutocomplete && addressInputRef.current && googleMapsLoaded && window.google) {
+    if (shouldShowAutocomplete && addressInputRef.current && window.google?.maps?.places) {
       autocompleteRef.current = new window.google.maps.places.Autocomplete(addressInputRef.current, {
         types: ['address'],
         componentRestrictions: { country: ['us', 'ca'] },
@@ -168,7 +141,7 @@ function Quiz() {
         window.google?.maps?.event?.clearInstanceListeners(autocompleteRef.current)
       }
     }
-  }, [step, isLandProperty, showManualAddress, formData.landInputType, googleMapsLoaded])
+  }, [step, isLandProperty, showManualAddress, formData.landInputType])
 
   // Scroll to top on step change
   useEffect(() => {
