@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom'
 
 function BuyerInput() {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    name: '',
     address: '',
     phone: '',
     email: '',
@@ -67,8 +66,8 @@ function BuyerInput() {
 
     if (name === 'phone') {
       setFormData((prev) => ({ ...prev, [name]: formatPhone(value) }))
-    } else if (name === 'firstName' || name === 'lastName') {
-      const cleaned = value.replace(/[^a-zA-Z\s'-]/g, '').substring(0, 50)
+    } else if (name === 'name') {
+      const cleaned = value.replace(/[^a-zA-Z\s'-]/g, '').substring(0, 100)
       setFormData((prev) => ({ ...prev, [name]: cleaned }))
     } else {
       setFormData((prev) => ({ ...prev, [name]: value }))
@@ -82,16 +81,10 @@ function BuyerInput() {
   const validateForm = () => {
     const newErrors = {}
 
-    if (!formData.firstName.trim()) {
-      newErrors.firstName = 'Required'
-    } else if (!isValidName(formData.firstName)) {
-      newErrors.firstName = 'Enter a valid first name'
-    }
-
-    if (!formData.lastName.trim()) {
-      newErrors.lastName = 'Required'
-    } else if (!isValidName(formData.lastName)) {
-      newErrors.lastName = 'Enter a valid last name'
+    if (!formData.name.trim()) {
+      newErrors.name = 'Required'
+    } else if (!isValidName(formData.name)) {
+      newErrors.name = 'Enter a valid name'
     }
 
     if (!formData.address.trim()) {
@@ -126,9 +119,7 @@ function BuyerInput() {
       const payload = {
         email: formData.email,
         phone: formData.phone.replace(/\D/g, ''),
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        name: `${formData.firstName} ${formData.lastName}`,
+        name: formData.name,
         address1: formData.address,
         propertyAddress: formData.address,
         notes: formData.notes,
@@ -161,8 +152,7 @@ function BuyerInput() {
 
   const resetForm = () => {
     setFormData({
-      firstName: '',
-      lastName: '',
+      name: '',
       address: '',
       phone: '',
       email: '',
@@ -237,42 +227,23 @@ function BuyerInput() {
           </div>
 
           <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Fields */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label htmlFor="firstName" className="block text-sm font-medium text-navy-200 mb-2">
-                  First Name
-                </label>
-                <input
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  value={formData.firstName}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-navy-800 border ${errors.firstName ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
-                  placeholder="First name"
-                />
-                {errors.firstName && (
-                  <p className="mt-1 text-sm text-red-400">{errors.firstName}</p>
-                )}
-              </div>
-              <div>
-                <label htmlFor="lastName" className="block text-sm font-medium text-navy-200 mb-2">
-                  Last Name
-                </label>
-                <input
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  value={formData.lastName}
-                  onChange={handleChange}
-                  className={`w-full px-4 py-3 bg-navy-800 border ${errors.lastName ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
-                  placeholder="Last name"
-                />
-                {errors.lastName && (
-                  <p className="mt-1 text-sm text-red-400">{errors.lastName}</p>
-                )}
-              </div>
+            {/* Name Field */}
+            <div>
+              <label htmlFor="name" className="block text-sm font-medium text-navy-200 mb-2">
+                Name
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 bg-navy-800 border ${errors.name ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
+                placeholder="Full name"
+              />
+              {errors.name && (
+                <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+              )}
             </div>
 
             {/* Address */}
