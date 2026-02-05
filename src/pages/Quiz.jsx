@@ -424,7 +424,7 @@ function Quiz() {
       }
 
       try {
-        const response = await fetch('https://services.leadconnectorhq.com/hooks/32BVxewQUNt09ieqvjRt/webhook-trigger/75ab51de-b48f-4795-b9e7-f2555047d493', {
+        const response = await fetch('https://services.leadconnectorhq.com/hooks/32BVxewQUNt09ieqvjRt/webhook-trigger/1942c760-3fa1-4615-95e4-8ba4e9adbfd9', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
