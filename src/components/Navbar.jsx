@@ -4,9 +4,13 @@ function Navbar() {
   return (
     <nav className="absolute top-0 left-0 right-0 z-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
-          <Link to="/" className="font-serif text-xl text-white">
-            Release Properties
+        <div className="flex justify-between items-center h-24">
+          <Link to="/" className="flex items-center">
+            <img
+              src="/releasepropertieslogo6_clear.png"
+              alt="Release Properties"
+              className="h-14 w-auto"
+            />
           </Link>
 
           <div className="flex items-center gap-6">
@@ -24,7 +28,7 @@ function Navbar() {
             </Link>
             <Link
               to="/quiz"
-              className="text-sm font-medium px-5 py-2 bg-white text-navy-900 hover:bg-amber-400 transition-colors rounded-full"
+              className="text-sm font-medium px-5 py-2.5 bg-cyan-500 text-white hover:bg-cyan-400 transition-all duration-200 rounded-full shadow-lg shadow-cyan-500/25"
             >
               Get Your Offer
             </Link>

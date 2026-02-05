@@ -451,17 +451,21 @@ function Quiz() {
       <div className="min-h-screen flex flex-col bg-navy-900">
         {/* Minimal Header */}
         <header className="py-6">
-          <div className="text-center">
-            <Link to="/" className="font-serif text-xl text-white">
-              Release Properties
+          <div className="flex justify-center">
+            <Link to="/">
+              <img
+                src="/releasepropertieslogo6_clear.png"
+                alt="Release Properties"
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
         </header>
 
         <div className="flex-grow flex items-center">
           <div className="max-w-lg mx-auto px-6 lg:px-8 py-20 text-center animate-fade-in">
-            <div className="w-24 h-24 bg-amber-500 rounded-full flex items-center justify-center mx-auto mb-8">
-              <svg className="w-12 h-12 text-navy-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-8">
+              <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
             </div>
@@ -469,7 +473,7 @@ function Quiz() {
             <p className="text-lg text-navy-300 mb-8 leading-relaxed">
               We've received your property information and will be in touch within 24-48 hours with your cash offer.
             </p>
-            <Link to="/" className="inline-flex items-center justify-center px-8 py-4 bg-amber-500 text-navy-900 font-semibold rounded-full hover:bg-amber-400 transition-all duration-200 hover:shadow-lg hover:shadow-amber-500/25">
+            <Link to="/" className="inline-flex items-center justify-center px-8 py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/25">
               Return to Homepage
             </Link>
           </div>
@@ -479,15 +483,19 @@ function Quiz() {
         <footer className="bg-navy-950 py-10">
           <div className="max-w-2xl mx-auto px-6 lg:px-8">
             <div className="text-center">
-              <Link to="/" className="font-serif text-lg text-white">
-                Release Properties
+              <Link to="/" className="inline-block mb-4">
+                <img
+                  src="/releasepropertieslogo6_clear.png"
+                  alt="Release Properties"
+                  className="h-10 w-auto mx-auto"
+                />
               </Link>
               <p className="text-navy-400 text-sm mt-2 mb-6">
                 Fair cash offers on homes and land across USA & Canada
               </p>
               <div className="flex justify-center gap-6 text-sm text-navy-500">
-                <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+                <Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+                <Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
               </div>
               <p className="text-navy-600 text-xs mt-6">
                 © {new Date().getFullYear()} Release Properties
@@ -502,17 +510,24 @@ function Quiz() {
   return (
     <div ref={containerRef}>
       {/* Main content area */}
-      <div className="bg-navy-900">
+      <div className="bg-navy-900 min-h-screen">
+        {/* Decorative background */}
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
+
         {/* Minimal Header */}
-        <header className="py-6">
-          <div className="text-center">
-            <Link to="/" className="font-serif text-xl text-white">
-              Release Properties
+        <header className="relative py-6">
+          <div className="flex justify-center">
+            <Link to="/">
+              <img
+                src="/releasepropertieslogo6_clear.png"
+                alt="Release Properties"
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
         </header>
 
-        <div className="pb-48">
+        <div className="relative pb-48">
           <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Progress Dots */}
         <div className="flex justify-center gap-2 mb-12">
@@ -521,9 +536,9 @@ function Quiz() {
               key={num}
               className={`h-2 rounded-full transition-all duration-300 ${
                 num === step
-                  ? 'w-8 bg-amber-500'
+                  ? 'w-8 bg-cyan-500'
                   : num < step
-                  ? 'w-2 bg-amber-500'
+                  ? 'w-2 bg-cyan-500'
                   : 'w-2 bg-navy-700'
               }`}
             />
@@ -548,8 +563,8 @@ function Quiz() {
                   onClick={() => selectPropertyType(type.id)}
                   className={`w-full px-6 py-4 rounded-full border-2 text-lg font-medium transition-all duration-200 flex items-center justify-center gap-3 ${
                     formData.propertyType === type.id
-                      ? 'border-amber-500 bg-amber-500 text-navy-900'
-                      : 'border-navy-600 text-white hover:border-amber-500 hover:bg-navy-800'
+                      ? 'border-cyan-500 bg-cyan-500 text-white'
+                      : 'border-navy-600 text-white hover:border-cyan-500 hover:bg-navy-800'
                   }`}
                 >
                   <span className="text-2xl">{type.icon}</span>
@@ -585,7 +600,7 @@ function Quiz() {
                       onClick={() => selectLandInputType('address')}
                       className={`flex-1 py-3 px-4 rounded-full text-sm font-medium transition-all duration-200 ${
                         formData.landInputType === 'address'
-                          ? 'bg-amber-500 text-navy-900'
+                          ? 'bg-cyan-500 text-white'
                           : 'bg-navy-100 text-navy-600 hover:bg-navy-200'
                       }`}
                     >
@@ -596,7 +611,7 @@ function Quiz() {
                       onClick={() => selectLandInputType('parcel')}
                       className={`flex-1 py-3 px-4 rounded-full text-sm font-medium transition-all duration-200 ${
                         formData.landInputType === 'parcel'
-                          ? 'bg-amber-500 text-navy-900'
+                          ? 'bg-cyan-500 text-white'
                           : 'bg-navy-100 text-navy-600 hover:bg-navy-200'
                       }`}
                     >
@@ -623,7 +638,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.fullAddress
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                       placeholder="Start typing your address..."
                       autoComplete="off"
@@ -634,7 +649,7 @@ function Quiz() {
                   <button
                     type="button"
                     onClick={() => setShowManualAddress(true)}
-                    className="text-sm text-navy-500 hover:text-amber-600 transition-colors inline-flex items-center gap-1"
+                    className="text-sm text-navy-500 hover:text-cyan-600 transition-colors inline-flex items-center gap-1"
                   >
                     Enter address manually
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -650,7 +665,7 @@ function Quiz() {
                   <button
                     type="button"
                     onClick={() => setShowManualAddress(false)}
-                    className="text-sm text-navy-500 hover:text-amber-600 transition-colors mb-2"
+                    className="text-sm text-navy-500 hover:text-cyan-600 transition-colors mb-2"
                   >
                     ← Use address search instead
                   </button>
@@ -667,7 +682,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.street
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                       placeholder="123 Main Street"
                     />
@@ -688,7 +703,7 @@ function Quiz() {
                         className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                           errors.city
                             ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                         }`}
                         placeholder="City"
                       />
@@ -708,7 +723,7 @@ function Quiz() {
                         className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                           errors.state
                             ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                         }`}
                         placeholder={formData.country === 'Canada' ? 'e.g., ON or Ontario' : 'e.g., CA or California'}
                       />
@@ -728,7 +743,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.country
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                     >
                       <option value="">Select</option>
@@ -756,7 +771,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.parcelNumber
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                       placeholder="e.g., 123-456-789"
                     />
@@ -777,7 +792,7 @@ function Quiz() {
                         className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                           errors.parcelCounty
                             ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                         }`}
                         placeholder="County name"
                       />
@@ -797,7 +812,7 @@ function Quiz() {
                         className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                           errors.state
                             ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                            : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                            : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                         }`}
                         placeholder={formData.country === 'Canada' ? 'e.g., ON or Ontario' : 'e.g., CA or California'}
                       />
@@ -817,7 +832,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.country
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                     >
                       <option value="">Select</option>
@@ -834,7 +849,7 @@ function Quiz() {
                 <button
                   type="button"
                   onClick={nextStep}
-                  className="w-full py-4 bg-amber-500 text-navy-900 font-semibold rounded-full hover:bg-amber-400 transition-all duration-200 hover:shadow-lg hover:shadow-amber-500/25"
+                  className="w-full py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/25"
                 >
                   Continue
                 </button>
@@ -881,7 +896,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.firstName
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                       placeholder="John"
                     />
@@ -902,7 +917,7 @@ function Quiz() {
                       className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                         errors.lastName
                           ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                          : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                          : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                       }`}
                       placeholder="Smith"
                     />
@@ -925,7 +940,7 @@ function Quiz() {
                     className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                       errors.phone
                         ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                        : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                        : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                     }`}
                     placeholder="(555) 123-4567"
                   />
@@ -947,7 +962,7 @@ function Quiz() {
                     className={`w-full px-4 py-3.5 border rounded-xl text-navy-800 placeholder:text-navy-400 transition-all duration-200 focus:outline-none focus:ring-2 ${
                       errors.email
                         ? 'border-red-400 focus:border-red-400 focus:ring-red-400/20'
-                        : 'border-navy-200 focus:border-amber-500 focus:ring-amber-500/20'
+                        : 'border-navy-200 focus:border-cyan-500 focus:ring-cyan-500/20'
                     }`}
                     placeholder="john@example.com"
                   />
@@ -963,17 +978,17 @@ function Quiz() {
                       name="tcpaConsent"
                       checked={formData.tcpaConsent}
                       onChange={handleChange}
-                      className="mt-0.5 w-5 h-5 text-amber-500 border-navy-300 rounded focus:ring-amber-500 cursor-pointer"
+                      className="mt-0.5 w-5 h-5 text-cyan-500 border-navy-300 rounded focus:ring-cyan-500 cursor-pointer"
                     />
                     <label htmlFor="tcpaConsent" className="text-xs text-navy-600 leading-relaxed cursor-pointer">
                       By checking this box, I consent to receive calls, text messages (SMS), and emails from Release
                       Properties at the phone number and email address provided, including through automated technology.
                       Message and data rates may apply. Reply STOP to opt-out. I agree to the{' '}
-                      <Link to="/terms" className="text-amber-600 hover:text-amber-700 underline" target="_blank">
+                      <Link to="/terms" className="text-cyan-600 hover:text-cyan-700 underline" target="_blank">
                         Terms
                       </Link>{' '}
                       and{' '}
-                      <Link to="/privacy" className="text-amber-600 hover:text-amber-700 underline" target="_blank">
+                      <Link to="/privacy" className="text-cyan-600 hover:text-cyan-700 underline" target="_blank">
                         Privacy Policy
                       </Link>.
                     </label>
@@ -994,7 +1009,7 @@ function Quiz() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-4 bg-amber-500 text-navy-900 font-semibold rounded-full hover:bg-amber-400 transition-all duration-200 hover:shadow-lg hover:shadow-amber-500/25 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/25 text-lg disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center gap-2">
@@ -1021,19 +1036,19 @@ function Quiz() {
               {/* Trust badges */}
               <div className="mt-8 pt-6 border-t border-navy-100 flex flex-wrap justify-center gap-6 text-xs text-navy-400">
                 <div className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                   <span>Secure & Private</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span>24-48 Hour Response</span>
                 </div>
                 <div className="flex items-center gap-1.5">
-                  <svg className="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 text-cyan-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
                   <span>No Obligation</span>
@@ -1050,15 +1065,19 @@ function Quiz() {
       <footer className="bg-navy-950 py-10">
         <div className="max-w-2xl mx-auto px-6 lg:px-8">
           <div className="text-center">
-            <Link to="/" className="font-serif text-lg text-white">
-              Release Properties
+            <Link to="/" className="inline-block mb-4">
+              <img
+                src="/releasepropertieslogo6_clear.png"
+                alt="Release Properties"
+                className="h-10 w-auto mx-auto"
+              />
             </Link>
             <p className="text-navy-400 text-sm mt-2 mb-6">
               Fair cash offers on homes and land across USA & Canada
             </p>
             <div className="flex justify-center gap-6 text-sm text-navy-500">
-              <Link to="/privacy" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
+              <Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
             </div>
             <p className="text-navy-600 text-xs mt-6">
               © {new Date().getFullYear()} Release Properties
