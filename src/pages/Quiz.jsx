@@ -41,10 +41,22 @@ const propertyTypes = [
   { id: 'commercial', label: 'Commercial', icon: '🏪' },
 ]
 
+const sellReasons = [
+  { id: 'foreclosure', label: 'Foreclosure' },
+  { id: 'inherited', label: 'Inherited' },
+  { id: 'divorce', label: 'Divorce' },
+  { id: 'tired-landlord', label: 'Tired Landlord' },
+  { id: 'emergency', label: 'Emergency Reasons' },
+  { id: 'quick-sale', label: 'Looking For a Quick Sale' },
+  { id: 'repairs', label: 'Repairs/Damage' },
+  { id: 'financial-hardship', label: 'Financial Hardship' },
+]
+
 function Quiz() {
   const [step, setStep] = useState(1)
   const [formData, setFormData] = useState({
     propertyType: '',
+    sellReason: '',
     // Address fields
     fullAddress: '',
     street: '',
@@ -76,11 +88,11 @@ function Quiz() {
   const containerRef = useRef(null)
 
   const isLandProperty = formData.propertyType === 'land'
-  const totalSteps = 3
+  const totalSteps = 4
 
   // Initialize Google Places Autocomplete
   useEffect(() => {
-    const shouldShowAutocomplete = step === 2 && !showManualAddress &&
+    const shouldShowAutocomplete = step === 3 && !showManualAddress &&
       (!isLandProperty || (isLandProperty && formData.landInputType === 'address'))
 
     if (shouldShowAutocomplete && addressInputRef.current && window.google?.maps?.places) {
@@ -288,7 +300,7 @@ function Quiz() {
   const validateStep = () => {
     const newErrors = {}
 
-    if (step === 2) {
+    if (step === 3) {
       if (isLandProperty && formData.landInputType === 'parcel') {
         // Parcel number validation
         if (!formData.parcelNumber.trim()) {
@@ -339,7 +351,7 @@ function Quiz() {
       }
     }
 
-    if (step === 3) {
+    if (step === 4) {
       // First name validation
       if (!formData.firstName.trim()) {
         newErrors.firstName = 'Required'
@@ -415,6 +427,7 @@ function Quiz() {
         state: formData.state,
         country: formData.country,
         propertyType: formData.propertyType,
+        sellReason: formData.sellReason,
         propertyAddress: fullPropertyAddress,
         street: formData.street,
         parcelNumber: formData.parcelNumber || '',
@@ -531,7 +544,7 @@ function Quiz() {
           <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Progress Dots */}
         <div className="flex justify-center gap-2 mb-12">
-          {[1, 2, 3].map((num) => (
+          {[1, 2, 3, 4].map((num) => (
             <div
               key={num}
               className={`h-2 rounded-full transition-all duration-300 ${
@@ -575,8 +588,52 @@ function Quiz() {
           </div>
         )}
 
-        {/* Step 2: Property Location */}
+        {/* Step 2: Sell Reason */}
         {step === 2 && (
+          <div className="text-center animate-fade-in">
+            <h1 className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-4">
+              Why are you looking to sell your property?
+            </h1>
+            <p className="text-navy-300 text-lg mb-12">
+              Select one to continue
+            </p>
+
+            <div className="flex flex-col gap-3 max-w-md mx-auto">
+              {sellReasons.map((reason) => (
+                <button
+                  key={reason.id}
+                  type="button"
+                  onClick={() => {
+                    setFormData((prev) => ({ ...prev, sellReason: reason.id }))
+                    setErrors({})
+                    setTimeout(() => {
+                      setStep(3)
+                    }, 300)
+                  }}
+                  className={`w-full px-6 py-4 rounded-full border-2 text-lg font-medium transition-all duration-200 flex items-center justify-center ${
+                    formData.sellReason === reason.id
+                      ? 'border-cyan-500 bg-cyan-500 text-white'
+                      : 'border-navy-600 text-white hover:border-cyan-500 hover:bg-navy-800'
+                  }`}
+                >
+                  {reason.label}
+                </button>
+              ))}
+            </div>
+
+            {/* Back button */}
+            <button
+              type="button"
+              onClick={prevStep}
+              className="mt-8 py-3 text-navy-400 font-medium hover:text-white transition-colors"
+            >
+              ← Go Back
+            </button>
+          </div>
+        )}
+
+        {/* Step 3: Property Location */}
+        {step === 3 && (
           <div className="animate-fade-in">
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl text-white mb-4">
@@ -865,8 +922,8 @@ function Quiz() {
           </div>
         )}
 
-        {/* Step 3: Contact Information */}
-        {step === 3 && (
+        {/* Step 4: Contact Information */}
+        {step === 4 && (
           <div className="animate-fade-in">
             <div className="text-center mb-10">
               <h1 className="font-serif text-3xl md:text-4xl text-white mb-4">
