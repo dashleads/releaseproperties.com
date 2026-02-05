@@ -81,27 +81,26 @@ function BuyerInput() {
   const validateForm = () => {
     const newErrors = {}
 
-    if (!formData.name.trim()) {
-      newErrors.name = 'Required'
-    } else if (!isValidName(formData.name)) {
+    // Check if at least one field is filled
+    const hasAnyField = formData.name.trim() || formData.address.trim() ||
+                        formData.phone.trim() || formData.email.trim() || formData.notes.trim()
+
+    if (!hasAnyField) {
+      newErrors.form = 'Please fill in at least one field'
+      setErrors(newErrors)
+      return false
+    }
+
+    // Only validate format if field has a value
+    if (formData.name.trim() && !isValidName(formData.name)) {
       newErrors.name = 'Enter a valid name'
     }
 
-    if (!formData.address.trim()) {
-      newErrors.address = 'Required'
-    } else if (formData.address.trim().length < 5) {
-      newErrors.address = 'Enter a valid address'
-    }
-
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Required'
-    } else if (!isValidPhone(formData.phone)) {
+    if (formData.phone.trim() && !isValidPhone(formData.phone)) {
       newErrors.phone = 'Enter a valid 10-digit phone number'
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = 'Required'
-    } else if (!isValidEmail(formData.email)) {
+    if (formData.email.trim() && !isValidEmail(formData.email)) {
       newErrors.email = 'Enter a valid email address'
     }
 
@@ -318,6 +317,13 @@ function BuyerInput() {
                 placeholder="Any additional information about the buyer..."
               />
             </div>
+
+            {/* Form Error */}
+            {errors.form && (
+              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+                <p className="text-red-400 text-center">{errors.form}</p>
+              </div>
+            )}
 
             {/* Submit Error */}
             {submitError && (
