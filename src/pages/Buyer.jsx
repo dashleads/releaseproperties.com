@@ -126,7 +126,7 @@ function Buyer() {
       }
 
       try {
-        const response = await fetch('https://services.leadconnectorhq.com/hooks/32BVxewQUNt09ieqvjRt/webhook-trigger/d78a76cd-0f5e-4b2c-b5f8-bbb7f3774ed2', {
+        const response = await fetch('https://services.leadconnectorhq.com/hooks/32BVxewQUNt09ieqvjRt/webhook-trigger/d00ab78b-bfb3-43e3-b047-816f678f74a2', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

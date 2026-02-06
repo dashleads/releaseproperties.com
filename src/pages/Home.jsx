@@ -39,20 +39,20 @@ function Home() {
           <div className="text-center animate-fade-in">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-cyan-500/10 border border-cyan-500/20 rounded-full mb-8">
               <span className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse" />
-              <span className="text-cyan-300 text-sm font-medium">Cash Offers in USA & Canada</span>
+              <span className="text-cyan-300 text-sm font-medium">Off-Market Deals in USA & Canada</span>
             </div>
 
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1] mb-8">
-              Sell Your Property
-              <span className="block mt-2 text-cyan-400">Fast & Easy</span>
+              Find Your Next
+              <span className="block mt-2 text-cyan-400">Investment Deal</span>
             </h1>
             <p className="text-xl text-navy-300 leading-relaxed mb-12 max-w-2xl mx-auto">
-              Skip the hassle of traditional real estate. We buy homes and land directly
-              from owners — no agents, no repairs, no waiting months for a sale.
+              Get exclusive access to off-market properties before they hit the MLS.
+              Whether you're a flipper, landlord, or investor — we have deals for you.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/quiz" className="inline-flex items-center justify-center px-8 py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-0.5">
-                Get Your Cash Offer
+              <Link to="/buyer" className="inline-flex items-center justify-center px-8 py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/30 hover:-translate-y-0.5">
+                Join the Buyers List
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
@@ -66,16 +66,16 @@ function Home() {
             <div className="mt-20 pt-12 border-t border-white/10">
               <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
                 <div className="text-center group">
-                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">7 Days</div>
-                  <div className="text-sm text-navy-400">Fast Closing</div>
+                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">Off-Market</div>
+                  <div className="text-sm text-navy-400">Exclusive Deals</div>
                 </div>
                 <div className="text-center group">
-                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">$0 Fees</div>
-                  <div className="text-sm text-navy-400">No Commissions</div>
+                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">Below Market</div>
+                  <div className="text-sm text-navy-400">Discounted Prices</div>
                 </div>
                 <div className="text-center group">
-                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">Any Condition</div>
-                  <div className="text-sm text-navy-400">No Repairs Needed</div>
+                  <div className="text-4xl font-serif text-white mb-2 group-hover:text-cyan-400 transition-colors">Direct Access</div>
+                  <div className="text-sm text-navy-400">No Middlemen</div>
                 </div>
               </div>
             </div>
@@ -100,15 +100,15 @@ function Home() {
               Three Simple Steps
             </h2>
             <p className="text-xl text-navy-600 max-w-2xl mx-auto">
-              We've simplified property sales. No open houses, no negotiations, no uncertainty.
+              Getting access to exclusive deals is easy. Join our buyers list and start receiving opportunities.
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
             {[
-              { num: '01', title: 'Submit Your Property', desc: 'Share basic details about your property through our simple form. Takes less than 2 minutes.' },
-              { num: '02', title: 'Get Your Cash Offer', desc: 'We review the details and present you with a fair, no-obligation cash offer within 24-48 hours.' },
-              { num: '03', title: 'Close & Get Paid', desc: 'Accept the offer and choose your closing date. We handle everything — you receive cash.' }
+              { num: '01', title: 'Join the Buyers List', desc: 'Tell us what you\'re looking for — property types, locations, and your investment criteria.' },
+              { num: '02', title: 'Receive Deals', desc: 'Get notified when we have properties that match your criteria. All deals are off-market and below retail.' },
+              { num: '03', title: 'Close & Profit', desc: 'Move quickly on deals that fit your strategy. We make the buying process smooth and straightforward.' }
             ].map((step, i) => (
               <div key={i} className={`animate-on-scroll opacity-0 delay-${(i + 1) * 100}`}>
                 <div className="group relative bg-navy-50 p-8 lg:p-10 hover:bg-navy-900 transition-all duration-500 card-hover rounded-2xl overflow-hidden">
@@ -141,26 +141,26 @@ function Home() {
         <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="animate-on-scroll opacity-0">
-              <div className="section-label text-cyan-400 before:bg-cyan-400 mb-4">What We Buy</div>
+              <div className="section-label text-cyan-400 before:bg-cyan-400 mb-4">Deal Types</div>
               <h2 className="font-serif text-4xl md:text-5xl mb-6">
-                We Purchase All
-                <span className="text-cyan-400"> Property Types</span>
+                Properties for Every
+                <span className="text-cyan-400"> Investment Strategy</span>
               </h2>
               <p className="text-xl text-navy-300 leading-relaxed mb-8">
-                Whether it's a family home that needs repairs, vacant land you inherited,
-                or a commercial building — we're ready to make you a fair cash offer.
+                From fix-and-flip opportunities to buy-and-hold rentals, we source deals
+                across property types to match your investment goals.
               </p>
-              <Link to="/quiz" className="btn-primary rounded-full">
-                Request Your Offer
+              <Link to="/buyer" className="btn-primary rounded-full">
+                Get on the List
               </Link>
             </div>
 
             <div className="grid grid-cols-2 gap-4 animate-on-scroll opacity-0 delay-200">
               {[
-                { icon: '🏠', title: 'Houses', desc: 'Single & multi-family homes' },
-                { icon: '🏢', title: 'Commercial', desc: 'Retail, office, industrial' },
-                { icon: '🌲', title: 'Land', desc: 'Vacant lots & acreage' },
-                { icon: '🏚️', title: 'Distressed', desc: 'Foreclosures & fixer-uppers' }
+                { icon: '🏠', title: 'Single Family', desc: 'Flip or rental ready' },
+                { icon: '🏢', title: 'Multi-Family', desc: 'Cash flow properties' },
+                { icon: '🌲', title: 'Land', desc: 'Development opportunities' },
+                { icon: '🏚️', title: 'Distressed', desc: 'Deep discount deals' }
               ].map((item, i) => (
                 <div key={i} className="bg-navy-800/50 border border-navy-700 p-6 hover:border-cyan-500/50 hover:bg-navy-800 transition-all duration-300 group rounded-xl">
                   <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">{item.icon}</div>
@@ -181,25 +181,25 @@ function Home() {
               <div className="section-label mb-4">Why Choose Us</div>
               <h2 className="font-serif text-4xl md:text-5xl text-navy-900 mb-6">
                 A Better Way to
-                <span className="text-cyan-500"> Sell Property</span>
+                <span className="text-cyan-500"> Find Deals</span>
               </h2>
               <p className="text-xl text-navy-600 leading-relaxed mb-8">
-                Traditional real estate means agents, repairs, showings, and months of uncertainty.
-                We offer a direct, transparent alternative.
+                Stop competing with retail buyers on the MLS. Get direct access to
+                motivated seller deals at prices that make sense for investors.
               </p>
 
               {/* Comparison */}
               <div className="bg-navy-50 p-6 rounded-xl mb-8">
                 <div className="grid grid-cols-3 gap-4 text-sm font-semibold text-navy-900 mb-4 pb-4 border-b border-navy-200">
                   <div></div>
-                  <div className="text-center">Traditional</div>
-                  <div className="text-center text-cyan-600">With Us</div>
+                  <div className="text-center">MLS Deals</div>
+                  <div className="text-center text-cyan-600">Our Deals</div>
                 </div>
                 {[
-                  ['Timeline', '3-6 months', '7-14 days'],
-                  ['Repairs', 'Required', 'None'],
-                  ['Fees', '6% commission', '$0'],
-                  ['Showings', 'Multiple', 'Zero']
+                  ['Pricing', 'Retail', 'Below Market'],
+                  ['Competition', 'High', 'Low'],
+                  ['Speed', 'Slow', 'Fast'],
+                  ['Access', 'Public', 'Exclusive']
                 ].map(([label, trad, us], i) => (
                   <div key={i} className="grid grid-cols-3 gap-4 text-sm py-3 border-b border-navy-100 last:border-0">
                     <div className="font-medium text-navy-900">{label}</div>
@@ -212,10 +212,10 @@ function Home() {
 
             <div className="space-y-6 animate-on-scroll opacity-0 delay-200">
               {[
-                { title: 'No Repairs Required', desc: 'We buy properties as-is. Don\'t spend time or money fixing things up — that\'s our job.' },
-                { title: 'No Agent Commissions', desc: 'Keep more of your equity. We don\'t charge any fees, commissions, or closing costs.' },
-                { title: 'Flexible Closing', desc: 'Close in as little as 7 days or pick a date that works for your timeline.' },
-                { title: 'Certainty of Sale', desc: 'No financing contingencies or deals falling through. When we make an offer, we close.' }
+                { title: 'Off-Market Inventory', desc: 'Access properties before they hit the MLS. Less competition means better deals for you.' },
+                { title: 'Below Market Pricing', desc: 'We negotiate directly with motivated sellers to secure deals at investor-friendly prices.' },
+                { title: 'Verified Deals', desc: 'Every property is vetted. We provide accurate information so you can move with confidence.' },
+                { title: 'Fast & Direct', desc: 'No agents in the middle. Work directly with us for quick closings and smooth transactions.' }
               ].map((item, i) => (
                 <div key={i} className="flex gap-5 p-6 bg-navy-50 hover:bg-navy-100 transition-colors duration-300 group rounded-xl">
                   <div className="flex-shrink-0 w-12 h-12 bg-cyan-500 rounded-xl flex items-center justify-center text-white font-bold group-hover:scale-110 transition-transform duration-300">
@@ -239,16 +239,16 @@ function Home() {
             <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/>
           </svg>
           <blockquote className="font-serif text-3xl md:text-4xl text-navy-900 leading-relaxed mb-8">
-            "Release Properties made selling my inherited home incredibly simple. No repairs,
-            no hassle, and I had cash in hand within two weeks."
+            "Release Properties has become my go-to source for investment deals. The properties
+            are priced right and the process is seamless. Closed on 3 deals in the last 6 months."
           </blockquote>
           <div className="flex items-center justify-center gap-4">
             <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center text-white font-bold">
-              M
+              J
             </div>
             <div className="text-left">
-              <div className="font-semibold text-navy-900">Michael R.</div>
-              <div className="text-sm text-navy-500">Property Seller, Texas</div>
+              <div className="font-semibold text-navy-900">Jason T.</div>
+              <div className="text-sm text-navy-500">Real Estate Investor, Texas</div>
             </div>
           </div>
         </div>
@@ -262,14 +262,14 @@ function Home() {
 
         <div className="relative max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <h2 className="font-serif text-4xl md:text-5xl text-white mb-6 animate-on-scroll opacity-0">
-            Ready to Get Started?
+            Ready to Find Your Next Deal?
           </h2>
           <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto animate-on-scroll opacity-0 delay-100">
-            Request your no-obligation cash offer today. We'll get back to you within
-            24-48 hours with a fair price for your property.
+            Join our buyers list today and get exclusive access to off-market
+            investment properties delivered straight to you.
           </p>
-          <Link to="/quiz" className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white font-semibold rounded-full hover:bg-navy-800 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-on-scroll opacity-0 delay-200">
-            Request Your Cash Offer
+          <Link to="/buyer" className="inline-flex items-center justify-center px-8 py-4 bg-navy-900 text-white font-semibold rounded-full hover:bg-navy-800 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5 animate-on-scroll opacity-0 delay-200">
+            Join the Buyers List
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>

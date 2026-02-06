@@ -45,14 +45,19 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <Link to="/quiz" className="text-navy-300 hover:text-cyan-400 transition-colors duration-200">
-                  Get Your Offer
+                <Link to="/buyer" className="text-navy-300 hover:text-cyan-400 transition-colors duration-200">
+                  Join Buyers List
                 </Link>
               </li>
               <li>
                 <a href="#how-it-works" className="text-navy-300 hover:text-cyan-400 transition-colors duration-200">
                   How It Works
                 </a>
+              </li>
+              <li>
+                <Link to="/quiz" className="text-navy-300 hover:text-cyan-400 transition-colors duration-200">
+                  Sell My Property
+                </Link>
               </li>
             </ul>
           </div>
