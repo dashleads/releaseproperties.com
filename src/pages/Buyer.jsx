@@ -195,6 +195,25 @@ function Buyer() {
             </Link>
           </div>
         </div>
+
+        {/* Footer */}
+        <footer className="py-6 border-t border-navy-800">
+          <div className="max-w-xl mx-auto px-6 lg:px-8">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+              <p className="text-sm text-navy-400">
+                &copy; {new Date().getFullYear()} Release Properties
+              </p>
+              <div className="flex gap-6">
+                <Link to="/privacy" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
+                  Privacy Policy
+                </Link>
+                <Link to="/terms" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
+                  Terms of Service
+                </Link>
+              </div>
+            </div>
+          </div>
+        </footer>
       </div>
     )
   }
@@ -339,9 +358,41 @@ function Buyer() {
                 'Get on the Buyers List'
               )}
             </button>
+
+            {/* Terms Text */}
+            <p className="text-center text-sm text-navy-400">
+              By submitting, you agree to our{' '}
+              <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                Terms of Service
+              </Link>{' '}
+              and{' '}
+              <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                Privacy Policy
+              </Link>
+              .
+            </p>
           </form>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="py-6 border-t border-navy-800">
+        <div className="max-w-xl mx-auto px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p className="text-sm text-navy-400">
+              &copy; {new Date().getFullYear()} Release Properties
+            </p>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link to="/terms" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
+                Terms of Service
+              </Link>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }
