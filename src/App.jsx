@@ -3,6 +3,7 @@ import Layout from './components/Layout'
 import Home from './pages/Home'
 import Quiz from './pages/Quiz'
 import BuyerInput from './pages/BuyerInput'
+import Buyer from './pages/Buyer'
 import Terms from './pages/Terms'
 import Privacy from './pages/Privacy'
 
@@ -11,6 +12,7 @@ function App() {
     <Routes>
       <Route path="/quiz" element={<Quiz />} />
       <Route path="/buyerinput" element={<BuyerInput />} />
+      <Route path="/buyer" element={<Buyer />} />
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="terms" element={<Terms />} />
