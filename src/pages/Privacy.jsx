@@ -22,9 +22,9 @@ function Privacy() {
           <section className="mb-10">
             <h2 className="font-serif text-2xl font-semibold text-navy-900 mb-4">1. Introduction</h2>
             <p className="text-navy-600 leading-relaxed mb-4">
-              Release Properties ("Company," "we," "us," or "our") is committed to protecting your privacy. This
-              Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our
-              website and use our services.
+              14163729 Canada Inc., doing business as Release Properties ("Company," "we," "us," or "our"), is
+              committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and
+              safeguard your information when you visit our website and use our services.
             </p>
             <p className="text-navy-600 leading-relaxed">
               Please read this Privacy Policy carefully. By using our website and services, you consent to the
@@ -84,9 +84,13 @@ function Privacy() {
                 <li>Telephone calls (including calls made using an automatic telephone dialing system or prerecorded voice)</li>
                 <li>Text messages (SMS and MMS)</li>
               </ul>
+              <p className="text-navy-600 leading-relaxed mb-4">
+                These communications may be sent by 14163729 Canada Inc. DBA Release Properties for: responding to
+                your property inquiry, providing information about your cash offer, and sending marketing and
+                promotional messages about our services.
+              </p>
               <p className="text-navy-600 leading-relaxed">
-                These communications may be sent for: responding to your property inquiry, providing information about
-                your cash offer, and sending marketing and promotional messages about our services.
+                Consent to receive text messages is not a condition of purchasing any property or receiving our services.
               </p>
             </div>
 
@@ -106,7 +110,7 @@ function Privacy() {
             <p className="text-navy-600 leading-relaxed mb-4">You may opt out of receiving text messages at any time by:</p>
             <ul className="list-disc pl-6 mb-4 space-y-2 text-navy-600">
               <li><strong>Replying STOP</strong> to any text message you receive from us</li>
-              <li>Contacting us at contact@releaseproperties.com</li>
+              <li>Contacting us at deals@releaseproperties.com</li>
             </ul>
             <p className="text-navy-600 leading-relaxed mb-6">
               After opting out, you will receive a confirmation message. Opting out of text messages does not opt you
@@ -114,8 +118,15 @@ function Privacy() {
             </p>
 
             <h3 className="font-serif text-xl font-medium text-navy-800 mb-3">Help</h3>
+            <p className="text-navy-600 leading-relaxed mb-6">
+              For help with text messages, reply HELP to any message or contact us at deals@releaseproperties.com.
+            </p>
+
+            <h3 className="font-serif text-xl font-medium text-navy-800 mb-3">SMS Data Sharing</h3>
             <p className="text-navy-600 leading-relaxed">
-              For help with text messages, reply HELP to any message or contact us at contact@releaseproperties.com.
+              Mobile information, including phone numbers and SMS opt-in data and consent, will not be shared with
+              third parties or affiliates for marketing or promotional purposes. You may opt out of receiving text
+              messages at any time by replying STOP.
             </p>
           </section>
 
@@ -268,8 +279,11 @@ function Privacy() {
               If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
             </p>
             <div className="bg-navy-50 border border-navy-200 p-6">
-              <p className="font-semibold text-navy-900">Release Properties</p>
-              <p className="text-navy-600">Email: contact@releaseproperties.com</p>
+              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA Release Properties</p>
+              <p className="text-navy-600">18 King Street East, Suite 1400</p>
+              <p className="text-navy-600">Toronto, ON M5C 1C4</p>
+              <p className="text-navy-600 mt-2">Phone: +1 (645) 232-4654</p>
+              <p className="text-navy-600">Email: deals@releaseproperties.com</p>
             </div>
             <p className="text-navy-600 leading-relaxed mt-4">
               You may also exercise your privacy rights by contacting us at the email address above.

@@ -27,9 +27,9 @@ function Terms() {
               our Website or Services.
             </p>
             <p className="text-navy-600 leading-relaxed">
-              These Terms constitute a legally binding agreement between you and Release Properties ("Company," "we,"
-              "us," or "our"). We reserve the right to modify these Terms at any time, and such modifications will be
-              effective immediately upon posting on the Website.
+              These Terms constitute a legally binding agreement between you and 14163729 Canada Inc., doing business as
+              Release Properties ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any
+              time, and such modifications will be effective immediately upon posting on the Website.
             </p>
           </section>
 
@@ -92,7 +92,8 @@ function Terms() {
           <section className="mb-10">
             <h2 className="font-serif text-2xl font-semibold text-navy-900 mb-4">6. Communications Consent</h2>
             <p className="text-navy-600 leading-relaxed mb-4">
-              By submitting your contact information through our Website, you expressly consent to receive:
+              By submitting your contact information and checking the SMS consent box on our Website, you expressly
+              consent to receive the following communications from 14163729 Canada Inc. DBA Release Properties:
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2 text-navy-600">
               <li>Phone calls (including automated calls) at the phone number provided</li>
@@ -105,9 +106,18 @@ function Terms() {
               <li>Updates regarding our Services</li>
               <li>Marketing and promotional materials</li>
             </ul>
+            <p className="text-navy-600 leading-relaxed mb-4">
+              Message frequency varies. Standard message and data rates may apply. Consent to receive text messages is
+              not a condition of purchasing any property or receiving our services.
+            </p>
+            <p className="text-navy-600 leading-relaxed mb-4">
+              You may opt out of text messages at any time by replying STOP to any message. After opting out, you will
+              receive one confirmation message. You may opt out of emails by clicking the unsubscribe link. For help,
+              reply HELP to any text message or contact us at deals@releaseproperties.com.
+            </p>
             <p className="text-navy-600 leading-relaxed">
-              You may opt out of text messages at any time by replying STOP to any message. You may opt out of emails
-              by clicking the unsubscribe link. Standard message and data rates may apply.
+              Mobile information, including phone numbers and SMS opt-in data and consent, will not be shared with
+              third parties or affiliates for marketing or promotional purposes.
             </p>
           </section>
 
@@ -201,8 +211,11 @@ function Terms() {
               If you have any questions about these Terms of Service, please contact us at:
             </p>
             <div className="bg-navy-50 border border-navy-200 p-6">
-              <p className="font-semibold text-navy-900">Release Properties</p>
-              <p className="text-navy-600">Email: contact@releaseproperties.com</p>
+              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA Release Properties</p>
+              <p className="text-navy-600">18 King Street East, Suite 1400</p>
+              <p className="text-navy-600">Toronto, ON M5C 1C4</p>
+              <p className="text-navy-600 mt-2">Phone: +1 (645) 232-4654</p>
+              <p className="text-navy-600">Email: deals@releaseproperties.com</p>
             </div>
           </section>
         </div>

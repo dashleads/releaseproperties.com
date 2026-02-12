@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import Footer from '../components/Footer'
 
 function Buyer() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,11 @@ function Buyer() {
     email: '',
     propertyAddress: '',
     cities: '',
+  })
+
+  const [consent, setConsent] = useState({
+    smsConsent: false,
+    termsConsent: false,
   })
 
   const [errors, setErrors] = useState({})
@@ -88,10 +94,8 @@ function Buyer() {
       newErrors.name = 'Enter a valid name'
     }
 
-    // Phone is required
-    if (!formData.phone.trim()) {
-      newErrors.phone = 'Please enter your phone number'
-    } else if (!isValidPhone(formData.phone)) {
+    // Phone is optional, but validate format if provided
+    if (formData.phone.trim() && !isValidPhone(formData.phone)) {
       newErrors.phone = 'Enter a valid 10-digit phone number'
     }
 
@@ -156,6 +160,7 @@ function Buyer() {
       propertyAddress: '',
       cities: '',
     })
+    setConsent({ smsConsent: false, termsConsent: false })
     setErrors({})
     setIsSubmitted(false)
     setSubmitError('')
@@ -196,24 +201,7 @@ function Buyer() {
           </div>
         </div>
 
-        {/* Footer */}
-        <footer className="py-6 border-t border-navy-800">
-          <div className="max-w-xl mx-auto px-6 lg:px-8">
-            <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-              <p className="text-sm text-navy-400">
-                &copy; {new Date().getFullYear()} Release Properties
-              </p>
-              <div className="flex gap-6">
-                <Link to="/privacy" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
-                  Privacy Policy
-                </Link>
-                <Link to="/terms" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
-                  Terms of Service
-                </Link>
-              </div>
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </div>
     )
   }
@@ -232,7 +220,7 @@ function Buyer() {
         </div>
       </header>
 
-      <div className="flex-grow flex items-center py-8">
+      <div className="flex-grow flex items-center py-8 pb-16">
         <div className="max-w-xl mx-auto px-6 lg:px-8 w-full">
           <div className="text-center mb-8">
             <h1 className="font-serif text-3xl md:text-4xl text-white mb-2">
@@ -266,7 +254,7 @@ function Buyer() {
             {/* Phone */}
             <div>
               <label htmlFor="phone" className="block text-sm font-medium text-navy-200 mb-2">
-                Phone Number <span className="text-cyan-400">*</span>
+                Phone Number
               </label>
               <input
                 type="tel"
@@ -333,6 +321,51 @@ function Buyer() {
               />
             </div>
 
+            {/* A2P SMS Consent Checkbox */}
+            <div className="space-y-4">
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="smsConsent"
+                  checked={consent.smsConsent}
+                  onChange={(e) => setConsent((prev) => ({ ...prev, smsConsent: e.target.checked }))}
+                  className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
+                />
+                <label htmlFor="smsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
+                  By checking this box, I consent to receive automated text messages from 14163729 Canada Inc. DBA Release Properties at the phone number provided, including property alerts, investment opportunities, and marketing messages. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe at any time. Consent is not a condition of purchase or receiving our services. View our{' '}
+                  <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                    Privacy Policy
+                  </Link>
+                  .
+                </label>
+              </div>
+              {/* Terms & Privacy Consent Checkbox */}
+              <div className="flex items-start gap-3">
+                <input
+                  type="checkbox"
+                  id="termsConsent"
+                  checked={consent.termsConsent}
+                  onChange={(e) => setConsent((prev) => ({ ...prev, termsConsent: e.target.checked }))}
+                  className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
+                />
+                <label htmlFor="termsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
+                  I agree to the 14163729 Canada Inc. DBA Release Properties{' '}
+                  <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                    Terms of Service
+                  </Link>{' '}
+                  and{' '}
+                  <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                    Privacy Policy
+                  </Link>
+                  .
+                </label>
+              </div>
+            </div>
+
             {/* Submit Error */}
             {submitError && (
               <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
@@ -358,41 +391,11 @@ function Buyer() {
                 'Get on the Buyers List'
               )}
             </button>
-
-            {/* Terms Text */}
-            <p className="text-center text-sm text-navy-400">
-              By submitting, you agree to our{' '}
-              <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                Terms of Service
-              </Link>{' '}
-              and{' '}
-              <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                Privacy Policy
-              </Link>
-              .
-            </p>
           </form>
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="py-6 border-t border-navy-800">
-        <div className="max-w-xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-navy-400">
-              &copy; {new Date().getFullYear()} Release Properties
-            </p>
-            <div className="flex gap-6">
-              <Link to="/privacy" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
-                Privacy Policy
-              </Link>
-              <Link to="/terms" className="text-sm text-navy-400 hover:text-cyan-400 transition-colors">
-                Terms of Service
-              </Link>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }
