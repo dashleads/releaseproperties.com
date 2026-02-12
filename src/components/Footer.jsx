@@ -38,9 +38,14 @@ function Footer() {
                 </Link>
               </li>
               <li>
-                <a href="#how-it-works" className="text-navy-300 text-sm hover:text-cyan-400 transition-colors duration-200">
-                  How It Works
-                </a>
+                <Link to="/about" className="text-navy-300 text-sm hover:text-cyan-400 transition-colors duration-200">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-navy-300 text-sm hover:text-cyan-400 transition-colors duration-200">
+                  Contact Us
+                </Link>
               </li>
               <li>
                 <Link to="/quiz" className="text-navy-300 text-sm hover:text-cyan-400 transition-colors duration-200">
@@ -90,7 +95,7 @@ function Footer() {
         {/* Bottom */}
         <div className="border-t border-navy-800 py-4 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-xs text-navy-400 text-center md:text-left">
-            &copy; {new Date().getFullYear()} 14163729 Canada Inc. DBA Release Properties. All rights reserved.
+            &copy; {new Date().getFullYear()} 14163729 Canada Inc. DBA "Release Properties". All rights reserved.
           </p>
           <p className="text-xs text-navy-500">
             Serving property owners across USA & Canada

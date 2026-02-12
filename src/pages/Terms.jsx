@@ -28,7 +28,7 @@ function Terms() {
             </p>
             <p className="text-navy-600 leading-relaxed">
               These Terms constitute a legally binding agreement between you and 14163729 Canada Inc., doing business as
-              Release Properties ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any
+              "Release Properties" ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any
               time, and such modifications will be effective immediately upon posting on the Website.
             </p>
           </section>
@@ -93,7 +93,7 @@ function Terms() {
             <h2 className="font-serif text-2xl font-semibold text-navy-900 mb-4">6. Communications Consent</h2>
             <p className="text-navy-600 leading-relaxed mb-4">
               By submitting your contact information and checking the SMS consent box on our Website, you expressly
-              consent to receive the following communications from 14163729 Canada Inc. DBA Release Properties:
+              consent to receive the following communications from 14163729 Canada Inc. DBA "Release Properties":
             </p>
             <ul className="list-disc pl-6 mb-4 space-y-2 text-navy-600">
               <li>Phone calls (including automated calls) at the phone number provided</li>
@@ -211,7 +211,7 @@ function Terms() {
               If you have any questions about these Terms of Service, please contact us at:
             </p>
             <div className="bg-navy-50 border border-navy-200 p-6">
-              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA Release Properties</p>
+              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA "Release Properties"</p>
               <p className="text-navy-600">18 King Street East, Suite 1400</p>
               <p className="text-navy-600">Toronto, ON M5C 1C4</p>
               <p className="text-navy-600 mt-2">Phone: +1 (645) 232-4654</p>

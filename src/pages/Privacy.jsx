@@ -22,7 +22,7 @@ function Privacy() {
           <section className="mb-10">
             <h2 className="font-serif text-2xl font-semibold text-navy-900 mb-4">1. Introduction</h2>
             <p className="text-navy-600 leading-relaxed mb-4">
-              14163729 Canada Inc., doing business as Release Properties ("Company," "we," "us," or "our"), is
+              14163729 Canada Inc., doing business as "Release Properties" ("Company," "we," "us," or "our"), is
               committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website and use our services.
             </p>
@@ -85,7 +85,7 @@ function Privacy() {
                 <li>Text messages (SMS and MMS)</li>
               </ul>
               <p className="text-navy-600 leading-relaxed mb-4">
-                These communications may be sent by 14163729 Canada Inc. DBA Release Properties for: responding to
+                These communications may be sent by 14163729 Canada Inc. DBA "Release Properties" for: responding to
                 your property inquiry, providing information about your cash offer, and sending marketing and
                 promotional messages about our services.
               </p>
@@ -279,7 +279,7 @@ function Privacy() {
               If you have any questions about this Privacy Policy or our privacy practices, please contact us at:
             </p>
             <div className="bg-navy-50 border border-navy-200 p-6">
-              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA Release Properties</p>
+              <p className="font-semibold text-navy-900">14163729 Canada Inc. DBA "Release Properties"</p>
               <p className="text-navy-600">18 King Street East, Suite 1400</p>
               <p className="text-navy-600">Toronto, ON M5C 1C4</p>
               <p className="text-navy-600 mt-2">Phone: +1 (645) 232-4654</p>

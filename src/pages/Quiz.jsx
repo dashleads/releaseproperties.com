@@ -461,21 +461,8 @@ function Quiz() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex flex-col bg-navy-900">
-        {/* Minimal Header */}
-        <header className="py-6">
-          <div className="flex justify-center">
-            <Link to="/">
-              <img
-                src="/releasepropertieslogo6_clear.png"
-                alt="Release Properties"
-                className="h-12 w-auto"
-              />
-            </Link>
-          </div>
-        </header>
-
-        <div className="flex-grow flex items-center">
+      <div className="bg-navy-900 pt-24">
+        <div className="flex items-center justify-center min-h-[60vh]">
           <div className="max-w-lg mx-auto px-6 lg:px-8 py-20 text-center animate-fade-in">
             <div className="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-8">
               <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -491,31 +478,6 @@ function Quiz() {
             </Link>
           </div>
         </div>
-
-        {/* Footer - below the fold */}
-        <footer className="bg-navy-950 py-10">
-          <div className="max-w-2xl mx-auto px-6 lg:px-8">
-            <div className="text-center">
-              <Link to="/" className="inline-block mb-4">
-                <img
-                  src="/releasepropertieslogo6_clear.png"
-                  alt="Release Properties"
-                  className="h-10 w-auto mx-auto"
-                />
-              </Link>
-              <p className="text-navy-400 text-sm mt-2 mb-6">
-                Fair cash offers on homes and land across USA & Canada
-              </p>
-              <div className="flex justify-center gap-6 text-sm text-navy-500">
-                <Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
-                <Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
-              </div>
-              <p className="text-navy-600 text-xs mt-6">
-                © {new Date().getFullYear()} Release Properties
-              </p>
-            </div>
-          </div>
-        </footer>
       </div>
     )
   }
@@ -523,24 +485,11 @@ function Quiz() {
   return (
     <div ref={containerRef}>
       {/* Main content area */}
-      <div className="bg-navy-900 min-h-screen">
+      <div className="bg-navy-900 min-h-screen pt-24">
         {/* Decorative background */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-cyan-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/4 pointer-events-none" />
 
-        {/* Minimal Header */}
-        <header className="relative py-6">
-          <div className="flex justify-center">
-            <Link to="/">
-              <img
-                src="/releasepropertieslogo6_clear.png"
-                alt="Release Properties"
-                className="h-12 w-auto"
-              />
-            </Link>
-          </div>
-        </header>
-
-        <div className="relative pb-48">
+        <div className="relative pb-24">
           <div className="max-w-2xl w-full mx-auto px-6 lg:px-8">
         {/* Progress Dots */}
         <div className="flex justify-center gap-2 mb-12">
@@ -1117,31 +1066,6 @@ function Quiz() {
           </div>
         </div>
       </div>
-
-      {/* Footer - below the fold */}
-      <footer className="bg-navy-950 py-10">
-        <div className="max-w-2xl mx-auto px-6 lg:px-8">
-          <div className="text-center">
-            <Link to="/" className="inline-block mb-4">
-              <img
-                src="/releasepropertieslogo6_clear.png"
-                alt="Release Properties"
-                className="h-10 w-auto mx-auto"
-              />
-            </Link>
-            <p className="text-navy-400 text-sm mt-2 mb-6">
-              Fair cash offers on homes and land across USA & Canada
-            </p>
-            <div className="flex justify-center gap-6 text-sm text-navy-500">
-              <Link to="/privacy" className="hover:text-cyan-400 transition-colors">Privacy Policy</Link>
-              <Link to="/terms" className="hover:text-cyan-400 transition-colors">Terms of Service</Link>
-            </div>
-            <p className="text-navy-600 text-xs mt-6">
-              © {new Date().getFullYear()} Release Properties
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   )
 }

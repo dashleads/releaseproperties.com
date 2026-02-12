@@ -1,13 +1,11 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Footer from '../components/Footer'
 
 function Buyer() {
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
-    propertyAddress: '',
     cities: '',
   })
 
@@ -121,7 +119,6 @@ function Buyer() {
         email: formData.email,
         phone: formData.phone.replace(/\D/g, ''),
         name: formData.name,
-        propertyAddress: formData.propertyAddress,
         customField: {
           cities_interested: formData.cities,
         },
@@ -157,7 +154,6 @@ function Buyer() {
       name: '',
       phone: '',
       email: '',
-      propertyAddress: '',
       cities: '',
     })
     setConsent({ smsConsent: false, termsConsent: false })
@@ -168,20 +164,8 @@ function Buyer() {
 
   if (isSubmitted) {
     return (
-      <div className="min-h-screen flex flex-col bg-navy-900">
-        <header className="py-6">
-          <div className="flex justify-center">
-            <Link to="/">
-              <img
-                src="/releasepropertieslogo6_clear.png"
-                alt="Release Properties"
-                className="h-12 w-auto"
-              />
-            </Link>
-          </div>
-        </header>
-
-        <div className="flex-grow flex items-center">
+      <div className="bg-navy-900 pt-24">
+        <div className="flex items-center justify-center min-h-[60vh]">
           <div className="max-w-lg mx-auto px-6 lg:px-8 py-20 text-center animate-fade-in">
             <div className="w-24 h-24 bg-gradient-to-br from-cyan-400 to-cyan-600 rounded-full flex items-center justify-center mx-auto mb-8">
               <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -200,202 +184,168 @@ function Buyer() {
             </Link>
           </div>
         </div>
-
-        <Footer />
       </div>
     )
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-navy-900">
-      <header className="py-6">
-        <div className="flex justify-center">
-          <Link to="/">
-            <img
-              src="/releasepropertieslogo6_clear.png"
-              alt="Release Properties"
-              className="h-12 w-auto"
-            />
-          </Link>
+    <div className="bg-navy-900 pt-24 pb-16">
+      <div className="max-w-xl mx-auto px-6 lg:px-8 py-8 w-full">
+        <div className="text-center mb-8">
+          <h1 className="font-serif text-3xl md:text-4xl text-white mb-2">
+            Get Access to Off-Market Deals
+          </h1>
+          <p className="text-navy-300">
+            Register to receive exclusive investment opportunities
+          </p>
         </div>
-      </header>
 
-      <div className="flex-grow flex items-center py-8 pb-16">
-        <div className="max-w-xl mx-auto px-6 lg:px-8 w-full">
-          <div className="text-center mb-8">
-            <h1 className="font-serif text-3xl md:text-4xl text-white mb-2">
-              Get Access to Off-Market Deals
-            </h1>
-            <p className="text-navy-300">
-              Register to receive exclusive investment opportunities
-            </p>
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Name Field */}
+          <div>
+            <label htmlFor="name" className="block text-sm font-medium text-navy-200 mb-2">
+              Your Name <span className="text-cyan-400">*</span>
+            </label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className={`w-full px-4 py-3 bg-navy-800 border ${errors.name ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
+              placeholder="Full name"
+            />
+            {errors.name && (
+              <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+            )}
           </div>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            {/* Name Field */}
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium text-navy-200 mb-2">
-                Your Name <span className="text-cyan-400">*</span>
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 bg-navy-800 border ${errors.name ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
-                placeholder="Full name"
-              />
-              {errors.name && (
-                <p className="mt-1 text-sm text-red-400">{errors.name}</p>
-              )}
-            </div>
-
-            {/* Phone */}
-            <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-navy-200 mb-2">
-                Phone Number
-              </label>
-              <input
-                type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 bg-navy-800 border ${errors.phone ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
-                placeholder="(555) 555-5555"
-              />
-              {errors.phone && (
-                <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
-              )}
-            </div>
-
-            {/* Email */}
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-navy-200 mb-2">
-                Email <span className="text-cyan-400">*</span>
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                className={`w-full px-4 py-3 bg-navy-800 border ${errors.email ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
-                placeholder="email@example.com"
-              />
-              {errors.email && (
-                <p className="mt-1 text-sm text-red-400">{errors.email}</p>
-              )}
-            </div>
-
-            {/* Property Address */}
-            <div>
-              <label htmlFor="propertyAddress" className="block text-sm font-medium text-navy-200 mb-2">
-                Property You're Interested In
-              </label>
-              <input
-                type="text"
-                id="propertyAddress"
-                name="propertyAddress"
-                value={formData.propertyAddress}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
-                placeholder="Enter property address (if applicable)"
-              />
-            </div>
-
-            {/* Cities Interested In */}
-            <div>
-              <label htmlFor="cities" className="block text-sm font-medium text-navy-200 mb-2">
-                Cities You're Interested In
-              </label>
-              <input
-                type="text"
-                id="cities"
-                name="cities"
-                value={formData.cities}
-                onChange={handleChange}
-                className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
-                placeholder="e.g., Dallas, Fort Worth, Houston"
-              />
-            </div>
-
-            {/* A2P SMS Consent Checkbox */}
-            <div className="space-y-4">
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  id="smsConsent"
-                  checked={consent.smsConsent}
-                  onChange={(e) => setConsent((prev) => ({ ...prev, smsConsent: e.target.checked }))}
-                  className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
-                />
-                <label htmlFor="smsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
-                  By checking this box, I consent to receive automated text messages from 14163729 Canada Inc. DBA Release Properties at the phone number provided, including property alerts, investment opportunities, and marketing messages. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe at any time. Consent is not a condition of purchase or receiving our services. View our{' '}
-                  <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
-                    Terms of Service
-                  </Link>{' '}
-                  and{' '}
-                  <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
-                    Privacy Policy
-                  </Link>
-                  .
-                </label>
-              </div>
-              {/* Terms & Privacy Consent Checkbox */}
-              <div className="flex items-start gap-3">
-                <input
-                  type="checkbox"
-                  id="termsConsent"
-                  checked={consent.termsConsent}
-                  onChange={(e) => setConsent((prev) => ({ ...prev, termsConsent: e.target.checked }))}
-                  className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
-                />
-                <label htmlFor="termsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
-                  I agree to the 14163729 Canada Inc. DBA Release Properties{' '}
-                  <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
-                    Terms of Service
-                  </Link>{' '}
-                  and{' '}
-                  <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
-                    Privacy Policy
-                  </Link>
-                  .
-                </label>
-              </div>
-            </div>
-
-            {/* Submit Error */}
-            {submitError && (
-              <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-                <p className="text-red-400 text-center">{submitError}</p>
-              </div>
+          {/* Phone */}
+          <div>
+            <label htmlFor="phone" className="block text-sm font-medium text-navy-200 mb-2">
+              Phone Number
+            </label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              value={formData.phone}
+              onChange={handleChange}
+              className={`w-full px-4 py-3 bg-navy-800 border ${errors.phone ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
+              placeholder="(555) 555-5555"
+            />
+            {errors.phone && (
+              <p className="mt-1 text-sm text-red-400">{errors.phone}</p>
             )}
+          </div>
 
-            {/* Submit Button */}
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? (
-                <span className="flex items-center justify-center">
-                  <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
-                  </svg>
-                  Submitting...
-                </span>
-              ) : (
-                'Get on the Buyers List'
-              )}
-            </button>
-          </form>
-        </div>
+          {/* Email */}
+          <div>
+            <label htmlFor="email" className="block text-sm font-medium text-navy-200 mb-2">
+              Email <span className="text-cyan-400">*</span>
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className={`w-full px-4 py-3 bg-navy-800 border ${errors.email ? 'border-red-500' : 'border-navy-700'} rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all`}
+              placeholder="email@example.com"
+            />
+            {errors.email && (
+              <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+            )}
+          </div>
+
+          {/* Cities Interested In */}
+          <div>
+            <label htmlFor="cities" className="block text-sm font-medium text-navy-200 mb-2">
+              Cities You're Interested In
+            </label>
+            <input
+              type="text"
+              id="cities"
+              name="cities"
+              value={formData.cities}
+              onChange={handleChange}
+              className="w-full px-4 py-3 bg-navy-800 border border-navy-700 rounded-xl text-white placeholder-navy-400 focus:outline-none focus:ring-2 focus:ring-cyan-500 focus:border-transparent transition-all"
+              placeholder="e.g., Dallas, Fort Worth, Houston"
+            />
+          </div>
+
+          {/* A2P SMS Consent Checkbox */}
+          <div className="space-y-4">
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="smsConsent"
+                checked={consent.smsConsent}
+                onChange={(e) => setConsent((prev) => ({ ...prev, smsConsent: e.target.checked }))}
+                className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
+              />
+              <label htmlFor="smsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
+                By checking this box, I consent to receive automated text messages from 14163729 Canada Inc. DBA "Release Properties" at the phone number provided, including property alerts, investment opportunities, and marketing messages. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe at any time. Consent is not a condition of purchase or receiving our services. View our{' '}
+                <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                  Terms of Service
+                </Link>{' '}
+                and{' '}
+                <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                  Privacy Policy
+                </Link>
+                .
+              </label>
+            </div>
+            {/* Terms & Privacy Consent Checkbox */}
+            <div className="flex items-start gap-3">
+              <input
+                type="checkbox"
+                id="termsConsent"
+                checked={consent.termsConsent}
+                onChange={(e) => setConsent((prev) => ({ ...prev, termsConsent: e.target.checked }))}
+                className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
+              />
+              <label htmlFor="termsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
+                I agree to the 14163729 Canada Inc. DBA "Release Properties"{' '}
+                <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                  Terms of Service
+                </Link>{' '}
+                and{' '}
+                <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                  Privacy Policy
+                </Link>
+                .
+              </label>
+            </div>
+          </div>
+
+          {/* Submit Error */}
+          {submitError && (
+            <div className="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
+              <p className="text-red-400 text-center">{submitError}</p>
+            </div>
+          )}
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full py-4 bg-cyan-500 text-white font-semibold rounded-full hover:bg-cyan-400 transition-all duration-200 hover:shadow-lg hover:shadow-cyan-500/25 disabled:opacity-50 disabled:cursor-not-allowed"
+          >
+            {isSubmitting ? (
+              <span className="flex items-center justify-center">
+                <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                  <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                  <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                </svg>
+                Submitting...
+              </span>
+            ) : (
+              'Get on the Buyers List'
+            )}
+          </button>
+        </form>
       </div>
-
-      <Footer />
     </div>
   )
 }
