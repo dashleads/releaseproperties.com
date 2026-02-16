@@ -115,9 +115,14 @@ function Terms() {
               receive one confirmation message. You may opt out of emails by clicking the unsubscribe link. For help,
               reply HELP to any text message or contact us at deals@releaseproperties.com.
             </p>
-            <p className="text-navy-600 leading-relaxed">
+            <p className="text-navy-600 leading-relaxed mb-4">
               Mobile information, including phone numbers and SMS opt-in data and consent, will not be shared with
               third parties or affiliates for marketing or promotional purposes.
+            </p>
+            <p className="text-navy-600 leading-relaxed">
+              Wireless carriers are not liable for delayed or undelivered messages. You acknowledge that message
+              delivery is subject to effective transmission by your wireless carrier and that carrier performance
+              is outside of our control.
             </p>
           </section>
 
