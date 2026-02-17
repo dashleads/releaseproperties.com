@@ -195,9 +195,6 @@ function Buyer() {
           <h1 className="font-serif text-3xl md:text-4xl text-white mb-2">
             Get Access to Off-Market Deals
           </h1>
-          <p className="text-navy-300">
-            Register to receive exclusive investment opportunities
-          </p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
