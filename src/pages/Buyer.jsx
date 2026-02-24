@@ -93,8 +93,12 @@ function Buyer() {
     }
 
     // Phone is optional, but validate format if provided
-    if (formData.phone.trim() && !isValidPhone(formData.phone)) {
-      newErrors.phone = 'Enter a valid 10-digit phone number'
+    if (formData.phone.trim()) {
+      if (!isValidPhone(formData.phone)) {
+        newErrors.phone = 'Enter a valid 10-digit phone number'
+      } else if (!consent.smsConsent) {
+        newErrors.smsConsent = 'You must agree to receive SMS to provide a phone number'
+      }
     }
 
     // Email is required
@@ -278,21 +282,27 @@ function Buyer() {
                 type="checkbox"
                 id="smsConsent"
                 checked={consent.smsConsent}
-                onChange={(e) => setConsent((prev) => ({ ...prev, smsConsent: e.target.checked }))}
+                onChange={(e) => {
+                  setConsent((prev) => ({ ...prev, smsConsent: e.target.checked }))
+                  if (errors.smsConsent) setErrors((prev) => ({ ...prev, smsConsent: '' }))
+                }}
                 className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
               />
               <label htmlFor="smsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
-                By checking this box, I consent to receive automated text messages from 14163729 Canada Inc. DBA "Release Properties" at the phone number provided, including property alerts, investment opportunities, and marketing messages. Message frequency varies. Msg & data rates may apply. Reply STOP to unsubscribe at any time. Consent is not a condition of purchase or receiving our services. View our{' '}
-                <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
-                  Terms of Service
-                </Link>{' '}
-                and{' '}
+                I agree to receive SMS messages from 14163729 Canada Inc. DBA Release Properties at the mobile number provided for real estate property updates and investment opportunities. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. By checking this box, I authorize Release Properties to store my consent details (timestamp, IP address, and page URL) as proof of opt-in. View our{' '}
                 <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
                   Privacy Policy
+                </Link>{' '}
+                and{' '}
+                <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
+                  Terms of Service
                 </Link>
                 .
               </label>
             </div>
+            {errors.smsConsent && (
+              <p className="mt-1 text-sm text-red-400">{errors.smsConsent}</p>
+            )}
             {/* Terms & Privacy Consent Checkbox */}
             <div className="flex items-start gap-3">
               <input
@@ -303,15 +313,15 @@ function Buyer() {
                 className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
               />
               <label htmlFor="termsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
-                I agree to the 14163729 Canada Inc. DBA "Release Properties"{' '}
+                I agree to the{' '}
                 <Link to="/terms" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
                   Terms of Service
                 </Link>{' '}
                 and{' '}
                 <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
                   Privacy Policy
-                </Link>
-                .
+                </Link>{' '}
+                of 14163729 Canada Inc. DBA "Release Properties." I understand that my information, including my phone number and any SMS opt-in data, will not be shared with third parties or affiliates for marketing or promotional purposes. I acknowledge that message and data rates may apply and that I can opt out at any time by replying STOP or contacting deals@releaseproperties.com.
               </label>
             </div>
           </div>
