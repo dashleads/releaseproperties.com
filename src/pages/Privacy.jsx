@@ -22,7 +22,7 @@ function Privacy() {
           <section className="mb-10">
             <h2 className="font-serif text-2xl font-semibold text-navy-900 mb-4">1. Introduction</h2>
             <p className="text-navy-600 leading-relaxed mb-4">
-              14163729 Canada Inc., doing business as "Release Properties" ("Company," "we," "us," or "our"), is
+              14163729 Canada Inc. DBA "Release Properties" ("Company," "we," "us," or "our"), is
               committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and
               safeguard your information when you visit our website and use our services.
             </p>
@@ -123,10 +123,14 @@ function Privacy() {
             </p>
 
             <h3 className="font-serif text-xl font-medium text-navy-800 mb-3">SMS Data Sharing</h3>
+            <p className="text-navy-600 leading-relaxed mb-4">
+              No mobile information will be shared with third parties/affiliates for marketing/promotional purposes.
+              Information sharing to subcontractors in support services, such as customer service, is permitted.
+              All other use case categories exclude text messaging originator opt-in data and consent; this
+              information will not be shared with any third parties.
+            </p>
             <p className="text-navy-600 leading-relaxed">
-              Mobile information, including phone numbers and SMS opt-in data and consent, will not be shared with
-              third parties or affiliates for marketing or promotional purposes. You may opt out of receiving text
-              messages at any time by replying STOP.
+              You may opt out of receiving text messages at any time by replying STOP.
             </p>
           </section>
 

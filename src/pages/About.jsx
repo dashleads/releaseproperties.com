@@ -24,7 +24,7 @@ function About() {
         <section className="mb-16">
           <h2 className="font-serif text-3xl text-navy-900 mb-6">Our Mission</h2>
           <p className="text-lg text-navy-600 leading-relaxed mb-4">
-            14163729 Canada Inc., doing business as "Release Properties," connects real estate investors
+            14163729 Canada Inc. DBA "Release Properties" connects real estate investors
             with exclusive off-market deals across the United States and Canada. We source properties
             directly from motivated sellers and make them available to our network of buyers at
             below-market prices.

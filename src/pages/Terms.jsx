@@ -27,8 +27,7 @@ function Terms() {
               our Website or Services.
             </p>
             <p className="text-navy-600 leading-relaxed">
-              These Terms constitute a legally binding agreement between you and 14163729 Canada Inc., doing business as
-              "Release Properties" ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any
+              These Terms constitute a legally binding agreement between you and 14163729 Canada Inc. DBA "Release Properties" ("Company," "we," "us," or "our"). We reserve the right to modify these Terms at any
               time, and such modifications will be effective immediately upon posting on the Website.
             </p>
           </section>

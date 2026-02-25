@@ -289,7 +289,7 @@ function Buyer() {
                 className="mt-1 h-5 w-5 shrink-0 rounded border-navy-600 bg-navy-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer accent-cyan-500"
               />
               <label htmlFor="smsConsent" className="text-sm text-navy-300 leading-relaxed cursor-pointer">
-                I agree to receive SMS messages from 14163729 Canada Inc. DBA Release Properties at the mobile number provided for real estate property updates and investment opportunities. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. By checking this box, I authorize Release Properties to store my consent details (timestamp, IP address, and page URL) as proof of opt-in. View our{' '}
+                I agree to receive SMS messages from 14163729 Canada Inc. DBA "Release Properties" at the mobile number provided for real estate property updates and investment opportunities. Message frequency varies. Msg & data rates may apply. Reply STOP to opt out. Reply HELP for help. Consent is not a condition of purchase. By checking this box, I authorize Release Properties to store my consent details (timestamp, IP address, and page URL) as proof of opt-in. View our{' '}
                 <Link to="/privacy" className="text-cyan-400 hover:text-cyan-300 transition-colors underline">
                   Privacy Policy
                 </Link>{' '}
